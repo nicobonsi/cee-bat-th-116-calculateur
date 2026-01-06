@@ -6,174 +6,228 @@
   <title>Incitation Financière - Prime CEE BAT-TH-116</title>
 
   <!--
-  === DÉPLOIEMENT GITHUB PAGES ===
-  1. Créer un dépôt GitHub (public)
-  2. Nom recommandé : cee-bat-th-116-calculateur
-  3. Ajouter ce fichier comme : index.html à la racine
-  4. GitHub → Settings → Pages
-     - Source: Deploy from branch
-     - Branch: main / root
-  5. URL finale : https://VOTRE_USERNAME.github.io/cee-bat-th-116-calculateur/
-  ===============================
+  === DÉPLOIEMENT GITHUB PAGES (RAPIDE) ===
+  Pré-requis : ce fichier est enregistré en "index.html" à la racine du dépôt.
+
+  1) GitHub → votre dépôt → Settings
+  2) Menu gauche → Pages
+  3) Build and deployment
+     - Source : Deploy from a branch
+     - Branch : main
+     - Folder : /(root)
+     - Save
+  4) Attendre 30–60s, puis rafraîchir la page Pages.
+  5) URL publique : https://VOTRE_USERNAME.github.io/NOM_DU_DEPOT/
+
+  Astuce : si l’URL renvoie 404, vérifier :
+  - Le fichier s’appelle bien index.html (pas Index.html)
+  - Il est bien à la racine du dépôt
+  - La branche sélectionnée est bien main
+  =========================================
   -->
 
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 15px;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
 
-  h1 { margin-bottom: 10px; font-size: 1.6rem; text-align: center; }
-  p { line-height: 1.4; }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
 
-  label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-  }
+    .header img {
+      height: 32px;
+      width: auto;
+      opacity: 0.85;
+    }
 
-  select, input {
-    padding: 8px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    font-size: 1rem;
-  }
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      text-align: center;
+      line-height: 1.2;
+    }
 
-  .usage-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
+    p { line-height: 1.4; }
 
-  button {
-    margin-top: 20px;
-    padding: 12px 20px;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 300px;
-  }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
 
-  .result {
-    margin-top: 30px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    background: #f7f7f7;
-    overflow-x: auto;
-  }
+    select, input {
+      padding: 8px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
 
-  table {
-    border-collapse: collapse;
-    margin-top: 10px;
-    width: 100%;
-  }
+    .usage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
 
-  th, td {
-    border: 1px solid #ccc;
-    padding: 6px 10px;
-    text-align: right;
-    font-size: 0.95rem;
-  }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 300px;
+      cursor: pointer;
+    }
 
-  th { background: #eee; }
+    .result {
+      margin-top: 30px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background: #f7f7f7;
+      overflow-x: auto;
+    }
 
-  @media (max-width: 600px) {
-    h1 { font-size: 1.3rem; }
-    .usage-grid { grid-template-columns: 1fr; }
-    button { max-width: 100%; }
-    label { font-size: 0.95rem; }
-    th, td { font-size: 0.85rem; }
-  }
+    table {
+      border-collapse: collapse;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: right;
+      font-size: 0.95rem;
+    }
+
+    th { background: #eee; }
+
+    .hint {
+      margin-top: 16px;
+      padding: 10px 12px;
+      border: 1px dashed #bbb;
+      background: #fff;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+      }
+
+      .header img {
+        height: 28px;
+      }
+
+      h1 { font-size: 1.3rem; }
+      .usage-grid { grid-template-columns: 1fr; }
+      button { max-width: 100%; }
+      label { font-size: 0.95rem; }
+      th, td { font-size: 0.85rem; }
+    }
   </style>
 </head>
 <body>
 
-<h1>Incitation Financière<br>Prime CEE BAT-TH-116</h1>
-<p>Estimation du volume de certificats d’économies d’énergie (kWh cumac) pour un projet de gestion technique du bâtiment (GTB) utilisant le Heatzy Cool.</p>
+  <div class="header">
+    <img src="heatzy-logo.png" alt="Heatzy" />
+    <h1>Incitation Financière<br>Prime CEE BAT-TH-116</h1>
+  </div>
+  <p>Estimation du volume de certificats d’économies d’énergie (kWh cumac) pour un projet de gestion technique du bâtiment (GTB) utilisant le Heatzy Cool.</p>
 
-<label>Classe du système Heatzy Cool : Classe A <span style="font-weight:normal">– Suivez ce lien pour en savoir plus : <a href="https://www.heatzy.com/cool" target="_blank">www.heatzy.com/cool</a></span></label>
+  <label>Classe du système Heatzy Cool : Classe A <span style="font-weight:normal">– Suivez ce lien pour en savoir plus : <a href="https://www.heatzy.com/cool" target="_blank" rel="noopener noreferrer">www.heatzy.com/cool</a></span></label>
 
-<label>Zone climatique</label>
-<select id="zone">
-  <option value="H1">H1</option>
-  <option value="H2">H2</option>
-  <option value="H3">H3</option>
-</select>
+  <label>Zone climatique</label>
+  <select id="zone">
+    <option value="H1">H1</option>
+    <option value="H2">H2</option>
+    <option value="H3">H3</option>
+  </select>
 
-<label>Secteur d’activité</label>
-<select id="sector">
-  <option value="Bureaux">Bureaux</option>
-  <option value="Enseignement">Enseignement</option>
-  <option value="Commerces">Commerces</option>
-  <option value="Hotellerie">Hôtellerie / Restauration</option>
-  <option value="Sante">Santé</option>
-  <option value="Autres">Autres secteurs</option>
-</select>
+  <label>Secteur d’activité</label>
+  <select id="sector">
+    <option value="Bureaux">Bureaux</option>
+    <option value="Enseignement">Enseignement</option>
+    <option value="Commerces">Commerces</option>
+    <option value="Hotellerie">Hôtellerie / Restauration</option>
+    <option value="Sante">Santé</option>
+    <option value="Autres">Autres secteurs</option>
+  </select>
 
-<label>Surface gérée par usage (m²)</label>
-<div class="usage-grid">
-  <input type="number" id="chauffage" placeholder="Chauffage" />
-  <input type="number" id="clim" placeholder="Refroidissement / Climatisation" />
-</div>
+  <label>Surface gérée par usage (m²)</label>
+  <div class="usage-grid">
+    <input type="number" id="chauffage" placeholder="Chauffage" min="0" step="1" />
+    <input type="number" id="clim" placeholder="Refroidissement / Climatisation" min="0" step="1" />
+  </div>
 
-<label>Rémunération des CEE <input type="number" id="price" placeholder="€/MWh cumac" style="margin-left:10px; max-width:200px; display:inline-block;" /></label>
+  <label>Rémunération des CEE <input type="number" id="price" placeholder="€ / MWh cumac" style="margin-left:10px; max-width:200px; display:inline-block;" min="0" step="0.01" /></label>
 
-<button onclick="calculate()">Calculer</button>
+  <button type="button" onclick="calculate()">Calculer</button>
 
-<div class="result" id="result" style="display:none"></div>
+  <div class="result" id="result" style="display:none"></div>
+
+  <div class="hint">
+    <strong>Publication (GitHub Pages) :</strong> si vous hébergez ce fichier sur GitHub Pages, l’URL du site sera du type <em>https://VOTRE_USERNAME.github.io/NOM_DU_DEPOT/</em>.
+  </div>
 
 <script>
-const zoneCoeff = { H1: 1.1, H2: 0.9, H3: 0.6 };
+  const zoneCoeff = { H1: 1.1, H2: 0.9, H3: 0.6 };
 
-const data = {
-  A: {
-    Bureaux:        { chauffage:400, clim:260 },
-    Enseignement:   { chauffage:200, clim:71  },
-    Commerces:      { chauffage:560, clim:160 },
-    Hotellerie:     { chauffage:420, clim:71  },
-    Sante:          { chauffage:200, clim:71  },
-    Autres:         { chauffage:200, clim:71  }
-  }
-};
-
-function calculate() {
-  const cls = 'A';
-  const zone = document.getElementById('zone').value;
-  const sector = document.getElementById('sector').value;
-
-  const surfaces = {
-    chauffage: Number(document.getElementById('chauffage').value || 0),
-    clim: Number(document.getElementById('clim').value || 0)
+  // Valeurs BAT-TH-116 Classe A (kWh cumac / m²) pour chauffage et refroidissement/climatisation
+  const data = {
+    A: {
+      Bureaux:      { chauffage: 400, clim: 260 },
+      Enseignement: { chauffage: 200, clim: 71  },
+      Commerces:    { chauffage: 560, clim: 160 },
+      Hotellerie:   { chauffage: 420, clim: 71  },
+      Sante:        { chauffage: 200, clim: 71  },
+      Autres:       { chauffage: 200, clim: 71  }
+    }
   };
 
-  let total = 0;
-  let rows = '';
+  function calculate() {
+    const cls = 'A'; // Heatzy Cool = Classe A
+    const zone = document.getElementById('zone').value;
+    const sector = document.getElementById('sector').value;
 
-  for (const usage in surfaces) {
-    if (surfaces[usage] > 0) {
-      const value = surfaces[usage] * data[cls][sector][usage] * zoneCoeff[zone];
-      total += value;
-      rows += `<tr><td>${usage}</td><td>${value.toFixed(0)}</td></tr>`;
+    const surfaces = {
+      chauffage: Number(document.getElementById('chauffage').value || 0),
+      clim: Number(document.getElementById('clim').value || 0)
+    };
+
+    let total = 0;
+    let rows = '';
+
+    for (const usage in surfaces) {
+      if (surfaces[usage] > 0) {
+        const value = surfaces[usage] * data[cls][sector][usage] * zoneCoeff[zone];
+        total += value;
+        rows += `<tr><td style="text-align:left">${usage}</td><td>${value.toFixed(0)}</td></tr>`;
+      }
     }
+
+    const price = Number(document.getElementById('price').value || 0);
+    const totalMWh = total / 1000;
+    const payout = totalMWh * price;
+
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').innerHTML = `
+      <h3>Résultat</h3>
+      <p><strong>${total.toFixed(0)} kWh cumac</strong> | <strong>${totalMWh.toFixed(2)} MWh cumac</strong></p>
+      <p><strong>Montant total estimé : €${payout.toFixed(2)}</strong></p>
+      <table>
+        <tr><th style="text-align:left">Usage</th><th>kWh cumac</th></tr>
+        ${rows || '<tr><td style="text-align:left">—</td><td>0</td></tr>'}
+      </table>
+    `;
   }
-
-  const price = Number(document.getElementById('price').value || 0);
-  const totalMWh = total / 1000;
-  const payout = totalMWh * price;
-
-  document.getElementById('result').style.display = 'block';
-  document.getElementById('result').innerHTML = `
-    <h3>Total CEE</h3>
-    <p><strong>${total.toFixed(0)} kWh cumac</strong> | <strong>${totalMWh.toFixed(2)} MWh cumac</strong></p>
-    <p><strong>Montant total estimé : €${payout.toFixed(2)}</strong></p>
-    <table>
-      <tr><th>Usage</th><th>kWh cumac</th></tr>
-      ${rows}
-    </table>
-  `;
-}
 </script>
 
 </body>
