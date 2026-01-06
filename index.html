@@ -5,27 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Incitation Financière - Prime CEE BAT-TH-116</title>
 
-  <!--
-  === DÉPLOIEMENT GITHUB PAGES (RAPIDE) ===
-  Pré-requis : ce fichier est enregistré en "index.html" à la racine du dépôt.
-
-  1) GitHub → votre dépôt → Settings
-  2) Menu gauche → Pages
-  3) Build and deployment
-     - Source : Deploy from a branch
-     - Branch : main
-     - Folder : /(root)
-     - Save
-  4) Attendre 30–60s, puis rafraîchir la page Pages.
-  5) URL publique : https://VOTRE_USERNAME.github.io/NOM_DU_DEPOT/
-
-  Astuce : si l’URL renvoie 404, vérifier :
-  - Le fichier s’appelle bien index.html (pas Index.html)
-  - Il est bien à la racine du dépôt
-  - La branche sélectionnée est bien main
-  =========================================
-  -->
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -43,9 +22,9 @@
     }
 
     .header img {
-      height: 32px;
+      height: 48px;
       width: auto;
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     h1 {
@@ -123,10 +102,15 @@
       }
 
       .header img {
-        height: 28px;
+        height: 44px;
       }
 
       h1 { font-size: 1.3rem; }
+      .usage-grid { grid-template-columns: 1fr; }
+      button { max-width: 100%; }
+      label { font-size: 0.95rem; }
+      th, td { font-size: 0.85rem; }
+    }
       .usage-grid { grid-template-columns: 1fr; }
       button { max-width: 100%; }
       label { font-size: 0.95rem; }
@@ -137,12 +121,14 @@
 <body>
 
   <div class="header">
+  <a href="//www.heatzy.com/cool" target="_blank" rel="noopener noreferrer">
     <img src="heatzy-logo.png" alt="Heatzy" />
-    <h1>Incitation Financière<br>Prime CEE BAT-TH-116</h1>
-  </div>
+  </a>
+  <h1>Incitation Financière<br>Prime CEE BAT-TH-116</h1>
+</div>
   <p>Estimation du volume de certificats d’économies d’énergie (kWh cumac) pour un projet de gestion technique du bâtiment (GTB) utilisant le Heatzy Cool.</p>
 
-  <label>Classe du système Heatzy Cool : Classe A <span style="font-weight:normal">– Suivez ce lien pour en savoir plus : <a href="https://www.heatzy.com/cool" target="_blank" rel="noopener noreferrer">www.heatzy.com/cool</a></span></label>
+  <label>Classe du système Heatzy Cool : Classe A <span style="font-weight:normal">– Suivez ce lien pour en savoir plus : <a href="//www.heatzy.com/cool" target="_blank" rel="noopener noreferrer">www.heatzy.com/cool</a></span></label>
 
   <label>Zone climatique</label>
   <select id="zone">
@@ -172,10 +158,6 @@
   <button type="button" onclick="calculate()">Calculer</button>
 
   <div class="result" id="result" style="display:none"></div>
-
-  <div class="hint">
-    <strong>Publication (GitHub Pages) :</strong> si vous hébergez ce fichier sur GitHub Pages, l’URL du site sera du type <em>https://VOTRE_USERNAME.github.io/NOM_DU_DEPOT/</em>.
-  </div>
 
 <script>
   const zoneCoeff = { H1: 1.1, H2: 0.9, H3: 0.6 };
