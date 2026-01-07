@@ -6,8 +6,13 @@
   <title>Incitation Financière - Prime CEE BAT-TH-116</title>
 
   <style>
+    /* Layout */
     body {
       font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .container {
       max-width: 900px;
       margin: 20px auto;
       padding: 0 15px;
@@ -18,13 +23,14 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .header img {
       height: 48px;
       width: auto;
       opacity: 0.9;
+      display: block;
     }
 
     h1 {
@@ -32,6 +38,15 @@
       font-size: 1.6rem;
       text-align: center;
       line-height: 1.2;
+    }
+
+    .reg-base {
+      width: 100%;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: normal;
+      color: #555;
+      margin: 0 0 15px 0;
     }
 
     p { line-height: 1.4; }
@@ -111,14 +126,10 @@
       label { font-size: 0.95rem; }
       th, td { font-size: 0.85rem; }
     }
-      .usage-grid { grid-template-columns: 1fr; }
-      button { max-width: 100%; }
-      label { font-size: 0.95rem; }
-      th, td { font-size: 0.85rem; }
-    }
   </style>
 </head>
 <body>
+  <div class="container">
 
   <div class="header">
   <a href="//www.heatzy.com/cool" target="_blank" rel="noopener noreferrer">
@@ -126,6 +137,7 @@
   </a>
   <h1>Incitation Financière<br>Prime CEE BAT-TH-116</h1>
 </div>
+<div class="reg-base">Base réglementaire : BAT-TH-116 vA62-6 (01/01/2025)</div>
   <p>Estimation du volume de certificats d’économies d’énergie (kWh cumac) pour un projet de gestion technique du bâtiment (GTB) utilisant le Heatzy Cool.</p>
 
   <label>Classe du système Heatzy Cool : Classe A <span style="font-weight:normal">– Suivez ce lien pour en savoir plus : <a href="//www.heatzy.com/cool" target="_blank" rel="noopener noreferrer">www.heatzy.com/cool</a></span></label>
@@ -144,7 +156,7 @@
     <option value="Commerces">Commerces</option>
     <option value="Hotellerie">Hôtellerie / Restauration</option>
     <option value="Sante">Santé</option>
-    <option value="Autres">Autres secteurs</option>
+    
   </select>
 
   <label>Surface gérée par usage (m²)</label>
@@ -162,15 +174,16 @@
 <script>
   const zoneCoeff = { H1: 1.1, H2: 0.9, H3: 0.6 };
 
-  // Valeurs BAT-TH-116 Classe A (kWh cumac / m²) pour chauffage et refroidissement/climatisation
+  // Valeurs BAT-TH-116 vA62-6 (01/01/2025) – Classe A
+  // kWh cumac / m² – Source : fiche officielle BAT-TH-116
   const data = {
     A: {
-      Bureaux:      { chauffage: 400, clim: 260 },
-      Enseignement: { chauffage: 200, clim: 71  },
-      Commerces:    { chauffage: 560, clim: 160 },
-      Hotellerie:   { chauffage: 420, clim: 71  },
-      Sante:        { chauffage: 200, clim: 71  },
-      Autres:       { chauffage: 200, clim: 71  }
+      Bureaux:      { chauffage: 360, clim: 233 },
+      Enseignement: { chauffage: 170, clim: 60  },
+      Commerces:    { chauffage: 520, clim: 150 },
+      Hotellerie:   { chauffage: 400, clim: 60  },
+      Sante:        { chauffage: 150, clim: 60  },
+      
     }
   };
 
@@ -212,5 +225,6 @@
   }
 </script>
 
+  </div>
 </body>
 </html>
